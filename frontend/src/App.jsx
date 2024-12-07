@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from 'react-router';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ProductProvider } from "./contexts/ProductContext";
+import { CategoryProvider } from "./contexts/CategoryContext";
+import { ToastContainer } from "react-toastify";
+import { SubcategoryProvider } from "./contexts/SubCategoryContext";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -29,7 +33,19 @@ function App() {
     AOS.refresh();
   }, []);
 
-  return <Outlet />;
+  return (
+    <>
+      <ProductProvider>
+        <CategoryProvider>
+          <SubcategoryProvider>
+            <ToastContainer />
+            <Outlet />
+          </SubcategoryProvider>
+        </CategoryProvider>
+      </ProductProvider>
+
+    </>
+  );
 }
 
 export default App;

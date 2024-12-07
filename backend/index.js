@@ -27,10 +27,18 @@ app.use(express.static('public'));
 
  const authRoute = require('./src/routes/authroute');
  const companyRoute  = require('./src/routes/companyRoute');
+ const productRoute = require('./src/routes/productRoute');
+ const categoryRoutes = require('./src/routes/categoryRotue');
+ const subcategoryRoutes = require('./src/routes/subcategoryRoute');
 
 app.use('/api' , authRoute);
 app.use('/api/v1/company' , companyRoute);
 
+// For only Product
+app.use('/api/categories', categoryRoutes);
+app.use('/api/subcategories', subcategoryRoutes);
+app.use('/api/products', productRoute);
+ 
 
 
 

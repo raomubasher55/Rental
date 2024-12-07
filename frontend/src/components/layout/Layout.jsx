@@ -1,5 +1,3 @@
-// components/layout/Layout.js
-
 import React, { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
@@ -22,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar theme={theme} setTheme={setTheme} />
-      <div className="main-content min-h-screen">{children}</div>
+      <div className="main-content min-h-screen py-20">{children}</div>
       <Footer />
     </>
   );
